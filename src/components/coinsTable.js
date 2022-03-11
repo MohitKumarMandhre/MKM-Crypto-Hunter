@@ -6,23 +6,15 @@ import { CryptoState } from '../cryptoContext';
 import { useHistory } from 'react-router-dom';
 import {numberWithCommas} from './banner/carousel';
 import {Pagination} from '@material-ui/lab';
+import { CoinList } from '../config/api';
 
 const CoinsTable = () => {
 
-    const [coins, setCoins] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
 
-    const { currency, symbol } = CryptoState();
+    const { currency, symbol, coins , loading, fetchCoins } = CryptoState();
     const history = useHistory();
-
-    const fetchCoins = async () => {
-        setLoading(true);
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`);
-        setCoins( data );
-        setLoading(false);
-    }
 
     useEffect(() => {
         fetchCoins();

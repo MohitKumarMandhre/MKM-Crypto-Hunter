@@ -2,7 +2,9 @@ import { AppBar, Container, MenuItem, Select, Toolbar, Typography, createTheme, 
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import {CryptoState} from '../cryptoContext';
+import {CryptoState} from '../cryptoContext.js';
+import AuthModal from './authentication/authModal';
+import UserSideBar from './authentication/userSideBar.js';
 
 const useStyles = makeStyles( () => ({
   title: {
@@ -28,7 +30,7 @@ const Header = () => {
 
   const classes = useStyles();
   const history = useHistory();
-  const { currency, setCurrency} = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
 
   // console.log( currency);
 
@@ -53,6 +55,9 @@ const Header = () => {
               <MenuItem value={"USD"} >USD</MenuItem>
               <MenuItem value={"INR"} >INR</MenuItem>
             </Select>
+
+            { user ? <UserSideBar/> :<AuthModal/>}
+
           </Toolbar>
         </Container>
       </AppBar>
