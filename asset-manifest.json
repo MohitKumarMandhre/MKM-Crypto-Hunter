@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MKM-Crypto-Hunter/static/css/main.1a9a7a29.css",
+    "main.js": "/MKM-Crypto-Hunter/static/js/main.92002295.js",
+    "index.html": "/MKM-Crypto-Hunter/index.html",
+    "main.1a9a7a29.css.map": "/MKM-Crypto-Hunter/static/css/main.1a9a7a29.css.map",
+    "main.92002295.js.map": "/MKM-Crypto-Hunter/static/js/main.92002295.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a9a7a29.css",
+    "static/js/main.92002295.js"
+  ]
+}
